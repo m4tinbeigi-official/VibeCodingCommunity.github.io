@@ -425,11 +425,11 @@
 <body>
   <main class="page">
     <section class="hero">
-      <div class="badge">☕ کافه سپید و سیاه · تهران</div>
+      <div class="badge" id="eventBadge">☕ کافه سپید و سیاه · تهران</div>
       <div class="hero-card glass">
-        <h1>دورهمی<br><span>وایب کدینگ</span></h1>
-        <p class="lead">همه اطلاعات لازم برای حضور در دورهمی اینجاست؛ زمان، آدرس، کسب اطلاعات بیشتر، مسیریابی، قوانین حضور و لینک کافه.</p>
-        <div class="quick-facts">
+        <h1 id="eventTitle">دورهمی<br><span>وایب کدینگ</span></h1>
+        <p class="lead" id="eventLead">همه اطلاعات لازم برای حضور در دورهمی اینجاست؛ زمان، آدرس، کسب اطلاعات بیشتر، مسیریابی، قوانین حضور و لینک کافه.</p>
+        <div class="quick-facts" id="eventFacts">
           <div class="fact"><b>زمان</b><small>پنج‌شنبه ۲۱ خرداد ۱۴۰۵<br>ساعت ۱۶:۰۰</small></div>
           <div class="fact"><b>محل</b><small>کافه سپید و سیاه<br>طبقه اول</small></div>
           <div class="fact"><b>فاز</b><small>برنامه‌نویسی<br>بحث آزاد</small></div>
@@ -542,15 +542,48 @@
   <div class="toast" id="toast">کپی شد</div>
 
   <script>
-    const EVENT_START = new Date('2026-06-11T16:00:00+03:30');
-    const EVENT_END = new Date('2026-06-11T19:00:00+03:30');
-    const EVENT_TITLE = 'دورهمی وایب کدینگ';
-    const EVENT_LOCATION = 'کافه سپید و سیاه، تهران، خیابان انقلاب، خیابان وصال شیرازی، نرسیده به طالقانی، پلاک ۶۵، طبقه اول';
-    const EVENT_DETAILS = 'حضور فقط برای افراد ثبت‌نام‌شده است. لطفاً همراه نیاورید. اگر نمی‌توانید بیایید به @m4tinbeigipv در تلگرام پیام بدهید. ثبت‌نام: https://evand.com/events/vibecoding';
+    // رویداد اول (دورهمی وایب کدینگ)
+    const EVENT_1 = {
+      start: new Date('2026-06-11T16:00:00+03:30'),
+      end: new Date('2026-06-11T19:00:00+03:30'),
+      title: 'دورهمی وایب کدینگ',
+      badge: '☕ کافه سپید و سیاه · تهران',
+      lead: 'همه اطلاعات لازم برای حضور در دورهمی اینجاست؛ زمان، آدرس، کسب اطلاعات بیشتر، مسیریابی، قوانین حضور و لینک کافه.',
+      poster: 'instagram-post.png',
+      facts: [
+        {label: 'زمان', value: 'پنج‌شنبه ۲۱ خرداد ۱۴۰۵<br>ساعت ۱۶:۰۰'},
+        {label: 'محل', value: 'کافه سپید و سیاه<br>طبقه اول'},
+        {label: 'فاز', value: 'برنامه‌نویسی<br>بحث آزاد'},
+        {label: 'اطلاعات', value: 'جزئیات بیشتر در ایوند'}
+      ],
+      location: 'کافه سپید و سیاه، تهران، خیابان انقلاب، خیابان وصال شیرازی، نرسیده به طالقانی، پلاک ۶۵، طبقه اول',
+      details: 'حضور فقط برای افراد ثبت‌نام‌شده است. لطفاً همراه نیاورید. اگر نمی‌توانید بیایید به @m4tinbeigipv در تلگرام پیام بدهید. ثبت‌نام: https://evand.com/events/vibecoding'
+    };
 
-    // دورهمی دوم (آنلاین) - ۳۰ دقیقه بعد از پایان دورهمی اول
-    const EVENT_START_2 = new Date('2026-06-11T19:30:00+03:30');
-    const EVENT_END_2 = new Date('2026-06-11T22:30:00+03:30');
+    // رویداد دوم (دورهمی آنلاین)
+    const EVENT_2 = {
+      start: new Date('2026-06-11T19:30:00+03:30'),
+      end: new Date('2026-06-11T22:30:00+03:30'),
+      title: 'دورهمی آنلاین',
+      badge: '🎥 Google Meet · آنلاین',
+      lead: 'دورهمی جامعه وایب کدینگ؛ ادامه مسیر. دورهمی آنلاین بعدی جامعه وایب کدینگ برگزار می‌شود.',
+      poster: 'instagram-post2.png',
+      facts: [
+        {label: 'زمان', value: 'پنج‌شنبه ۲۱ خرداد ۱۴۰۵<br>ساعت ۱۹:۳۰'},
+        {label: 'محل', value: 'Google Meet<br>آنلاین'},
+        {label: 'فاز', value: 'برنامه‌نویسی<br>بحث آزاد'},
+        {label: 'ثبت‌نام', value: 'لینک ثبت‌نام در ایوند'}
+      ],
+      location: 'Google Meet (آنلاین)',
+      details: 'دورهمی آنلاین جامعه وایب کدینگ. لینک ورود: meet.google.com/bcy-vzta-hvv'
+    };
+
+    // متغیرهای فعلی (برای سازگاری با کد قبلی)
+    let currentEvent = EVENT_1;
+    const EVENT_START = EVENT_1.start;
+    const EVENT_END = EVENT_1.end;
+    const EVENT_START_2 = EVENT_2.start;
+    const EVENT_END_2 = EVENT_2.end;
     const faDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
     const toFa = (value) => String(value).replace(/\d/g, d => faDigits[d]);
     const pad2 = (n) => String(Math.max(0, n)).padStart(2, '0');
@@ -561,16 +594,47 @@
       clearTimeout(window.__toastTimer);
       window.__toastTimer = setTimeout(()=>t.classList.remove('show'), 1900);
     }
+
+    function updateEventContent(event){
+      document.getElementById('eventBadge').textContent = event.badge;
+      document.getElementById('eventTitle').innerHTML = event.title.replace('دورهمی', 'دورهمی<br><span>') + '</span>';
+      document.getElementById('eventLead').textContent = event.lead;
+      document.getElementById('posterImage').src = event.poster;
+      document.getElementById('posterImage').alt = 'پوستر ' + event.title;
+
+      const factsHtml = event.facts.map(fact =>
+        `<div class="fact"><b>${fact.label}</b><small>${fact.value}</small></div>`
+      ).join('');
+      document.getElementById('eventFacts').innerHTML = factsHtml;
+
+      currentEvent = event;
+    }
+
     function updateCountdown(){
       const now = new Date();
-      const diff = EVENT_START - now;
       const status = document.getElementById('eventStatus');
       const statusText = document.getElementById('statusText');
       const meetLink = document.getElementById('meetLink');
       const calendarLink2 = document.getElementById('calendarLink2');
 
+      // تشخیص رویداد فعال
+      let activeEvent = EVENT_1;
+      let eventStart = EVENT_1.start;
+      let eventEnd = EVENT_1.end;
+
+      if(now >= EVENT_2.start && now <= EVENT_2.end){
+        activeEvent = EVENT_2;
+        eventStart = EVENT_2.start;
+        eventEnd = EVENT_2.end;
+      }
+
+      // به‌روزرسانی محتوا اگر رویداد تغییر کرده
+      if(currentEvent !== activeEvent){
+        updateEventContent(activeEvent);
+      }
+
       // نیم ساعت بعد از پایان دورهمی اول
-      const thirtyMinAfterEvent1 = new Date(EVENT_END.getTime() + 30 * 60 * 1000);
+      const thirtyMinAfterEvent1 = new Date(EVENT_1.end.getTime() + 30 * 60 * 1000);
 
       // نمایش لینک تقویم دورهمی دوم (نیم ساعت بعد از دورهمی اول)
       if(now >= thirtyMinAfterEvent1 && calendarLink2){
@@ -578,20 +642,24 @@
       }
 
       // نمایش لینک Google Meet (وقتی دورهمی دوم شروع شد)
-      if(now >= EVENT_START_2 && meetLink){
+      if(now >= EVENT_2.start && meetLink){
         meetLink.style.display = 'flex';
       }
 
-      if(now >= EVENT_END){
+      const diff = eventStart - now;
+
+      if(now >= eventEnd){
         ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '۰۰');
         status.textContent = 'پایان یافته';
-        statusText.textContent = 'این دورهمی به پایان رسیده است. ممنون از همراهی شما.';
+        statusText.textContent = 'این رویداد به پایان رسیده است. ممنون از همراهی شما.';
         return;
       }
       if(diff <= 0){
         ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '۰۰');
         status.textContent = 'در حال برگزاری';
-        statusText.textContent = 'برنامه شروع شده؛ اگر در مسیر هستید، مستقیم از بخش مسیریابی استفاده کنید.';
+        statusText.textContent = activeEvent === EVENT_2
+          ? 'رویداد آنلاین شروع شده؛ لینک ورود به Google Meet فعال است.'
+          : 'برنامه شروع شده؛ اگر در مسیر هستید، مستقیم از بخش مسیریابی استفاده کنید.';
         return;
       }
       const totalSeconds = Math.floor(diff / 1000);
@@ -604,19 +672,7 @@
       document.getElementById('minutes').textContent = toFa(pad2(minutes));
       document.getElementById('seconds').textContent = toFa(pad2(seconds));
       status.textContent = 'در انتظار شروع';
-      statusText.textContent = days === 0 ? 'امروز روز دورهمی است؛ مسیر و زمان رسیدن را از همین حالا چک کنید.' : 'برای اینکه چیزی را از دست ندهید، بهتر است زودتر مسیر را چک کنید.';
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-      const hours = Math.floor((totalSeconds % 86400) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-      document.getElementById('days').textContent = toFa(pad2(days));
-      document.getElementById('hours').textContent = toFa(pad2(hours));
-      document.getElementById('minutes').textContent = toFa(pad2(minutes));
-      document.getElementById('seconds').textContent = toFa(pad2(seconds));
-      status.textContent = 'در انتظار شروع';
-      statusText.textContent = days === 0 ? 'امروز روز دورهمی است؛ مسیر و زمان رسیدن را از همین حالا چک کنید.' : 'برای اینکه چیزی را از دست ندهید، بهتر است زودتر مسیر را چک کنید.';
+      statusText.textContent = days === 0 ? 'امروز روز رویداد است؛ مسیر و زمان رسیدن را از همین حالا چک کنید.' : 'برای اینکه چیزی را از دست ندهید، بهتر است زودتر مسیر را چک کنید.';
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
@@ -638,7 +694,7 @@
       catch(e){ showToast('کپی نشد؛ آدرس را دستی انتخاب کنید'); }
     });
     document.getElementById('sharePage').addEventListener('click', async () => {
-      const shareData = { title: EVENT_TITLE, text: 'اطلاعات حضور در دورهمی وایب کدینگ', url: window.location.href };
+      const shareData = { title: currentEvent.title, text: 'اطلاعات حضور در ' + currentEvent.title, url: window.location.href };
       if(navigator.share){
         try { await navigator.share(shareData); }
         catch(e){}
