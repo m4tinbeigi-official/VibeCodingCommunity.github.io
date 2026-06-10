@@ -468,11 +468,6 @@
           <p>برای انتشار نهایی، فایل پوستر را کنار همین صفحه با نام <b>poster.jpg</b> قرار دهید یا از دکمه زیر برای پیش‌نمایش روی همین دستگاه استفاده کنید.</p>
         </div>
       </div>
-      <input class="input-file" id="posterInput" type="file" accept="image/*" />
-      <div class="poster-actions">
-        <button class="btn small" id="selectPoster">انتخاب پوستر</button>
-        <button class="btn small danger" id="clearPoster" style="display:none">پاک کردن پوستر</button>
-      </div>
     </section>
 
     <section class="section glass" id="important">
@@ -492,7 +487,7 @@
         <div class="info-row"><span class="ico">📅</span><div><b>تاریخ و ساعت</b><span>پنج‌شنبه ۲۱ خرداد ۱۴۰۵، ساعت ۱۶:۰۰</span></div></div>
         <div class="info-row"><span class="ico">📍</span><div><b>آدرس</b><span id="addressText">تهران، خیابان انقلاب، خیابان وصال شیرازی، نرسیده به طالقانی، پلاک ۶۵، طبقه اول، کافه سپید و سیاه</span></div></div>
         <div class="info-row"><span class="ico">ℹ️</span><div><b>اطلاعات بیشتر</b><span>برای کسب اطلاعات بیشتر، لینک ایوند را بررسی کنید.</span></div></div>
-        <div class="info-row"><span class="ico">☕</span><div><b>کافه و منو</b><span>برای دیدن فضای کافه و منو، لینک‌های پایین صفحه را باز کنید.</span></div></div>
+        <div class="info-row"><span class="ico">☕</span><div><b>کافه و منو</b><span><a href="#links" style="color:var(--accent);text-decoration:none;cursor:pointer">برای دیدن منوی کافه کلیک کنید</a></span></div></div>
       </div>
       <div class="cta-grid two" style="margin-top:12px">
         <button class="btn small" id="copyAddress" type="button" style="display:block">کپی آدرس</button>
@@ -519,19 +514,17 @@
       <div class="cta-grid" style="margin-top:12px" id="usefulLinks">
         <a class="btn primary" href="https://evand.com/events/vibecoding" target="_blank" rel="noopener">کسب اطلاعات در ایوند</a>
         <a class="btn" href="https://www.instagram.com/sepidosiaahcafe/?hl=nb" target="_blank" rel="noopener">اینستاگرام کافه سپید و سیاه</a>
-        <a class="btn" href="https://eatpal.ir/sepidosiyah" target="_blank" rel="noopener">مشاهده منوی آنلاین کافه</a>
-        <a class="btn warn" id="calendarLink" target="_blank" rel="noopener">افزودن به Google Calendar</a>
-        <a class="btn danger" href="https://t.me/noqte_ai" target="_blank" rel="noopener">لغو حضور / پیام در تلگرام</a>
-      </div>
-      <div class="cta-grid" style="margin-top:12px">
         <a class="btn" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDIyNjM4MTU4NTg0NTUz?story_media_id=3742275024901121855_5735317441&igsh=aTFzMTltenFwNjVu" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-left:6px">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
           </svg>
-          اینستاگرام استوری
+          منوی کافه (اینستاگرام)
         </a>
+        <a class="btn warn" id="calendarLink" target="_blank" rel="noopener">افزودن به Google Calendar</a>
+        <a class="btn danger" href="https://t.me/noqte_ai" target="_blank" rel="noopener">لغو حضور / پیام در تلگرام</a>
+      </div>
         <a class="btn" href="https://t.me/+NPQiEl2kUQ5jZTRk" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-left:6px">
             <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -682,7 +675,7 @@
           <div class="info-row"><span class="ico">📅</span><div><b>تاریخ و ساعت</b><span>پنج‌شنبه ۲۱ خرداد ۱۴۰۵، ساعت ۱۶:۰۰</span></div></div>
           <div class="info-row"><span class="ico">📍</span><div><b>آدرس</b><span id="addressText">تهران، خیابان انقلاب، خیابان وصال شیرازی، نرسیده به طالقانی، پلاک ۶۵، طبقه اول، کافه سپید و سیاه</span></div></div>
           <div class="info-row"><span class="ico">ℹ️</span><div><b>اطلاعات بیشتر</b><span>برای کسب اطلاعات بیشتر، لینک ایوند را بررسی کنید.</span></div></div>
-          <div class="info-row"><span class="ico">☕</span><div><b>کافه و منو</b><span>برای دیدن فضای کافه و منو، لینک‌های پایین صفحه را باز کنید.</span></div></div>
+          <div class="info-row"><span class="ico">☕</span><div><b>کافه و منو</b><span><a href="#links" style="color:var(--accent);text-decoration:none;cursor:pointer">برای دیدن منوی کافه کلیک کنید</a></span></div></div>
         `;
       }
 
@@ -746,15 +739,13 @@
             </svg>
             اینستاگرام کافه سپید و سیاه
           </a>
-          <a class="btn" href="https://eatpal.ir/sepidosiyah" target="_blank" rel="noopener">
+          <a class="btn" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDIyNjM4MTU4NTg0NTUz?story_media_id=3742275024901121855_5735317441&igsh=aTFzMTltenFwNjVu" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-left:6px">
-              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-              <line x1="6" y1="1" x2="6" y2="4"></line>
-              <line x1="10" y1="1" x2="10" y2="4"></line>
-              <line x1="14" y1="1" x2="14" y2="4"></line>
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
-            مشاهده منوی آنلاین کافه
+            منوی کافه (اینستاگرام)
           </a>
           <a class="btn warn" id="calendarLink" target="_blank" rel="noopener">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-left:6px">
@@ -917,33 +908,6 @@
       }
     });
     if(savedPoster) revealPoster(savedPoster);
-
-    document.getElementById('selectPoster').addEventListener('click', () => {
-      document.getElementById('posterInput').click();
-    });
-    document.getElementById('posterInput').addEventListener('change', (event) => {
-      const file = event.target.files && event.target.files[0];
-      if(!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        localStorage.setItem('vibecodingPosterPreview', reader.result);
-        revealPoster(reader.result);
-        showToast('پوستر برای پیش‌نمایش اضافه شد');
-        document.getElementById('clearPoster').style.display = 'inline-block';
-      };
-      reader.readAsDataURL(file);
-    });
-    document.getElementById('clearPoster').addEventListener('click', () => {
-      localStorage.removeItem('vibecodingPosterPreview');
-      posterImage.removeAttribute('src');
-      posterImage.style.display = 'none';
-      posterPlaceholder.style.display = 'block';
-      document.getElementById('clearPoster').style.display = 'none';
-      showToast('پیش‌نمایش پوستر حذف شد');
-    });
-    if(savedPoster) {
-      document.getElementById('clearPoster').style.display = 'inline-block';
-    }
   </script>
 </body>
 </html>
